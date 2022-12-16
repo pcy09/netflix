@@ -38,7 +38,7 @@ export default function Trailer({ videoId }) {
 				<Modal.Header closeButton></Modal.Header>
 				<Modal.Body>
 					<YouTube
-						videoId={videoId.results[0].key}
+						videoId={videoId && videoId.results[0].key}
 						opts={opts}
 						onReady={onPlayerReady}
 					/>
