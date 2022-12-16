@@ -30,11 +30,12 @@ export default function MovieSlide({ movie }) {
 	return (
 		<div>
 			<Carousel responsive={responsive}>
-				{movie.map((item) => (
-					<div className="cardWrap">
-						<MovieCard item={item} />
-					</div>
-				))}
+				{movie &&
+					movie.map((item) => (
+						<div className="cardWrap">
+							<MovieCard item={item} />
+						</div>
+					))}
 			</Carousel>
 		</div>
 	);
