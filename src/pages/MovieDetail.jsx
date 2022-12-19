@@ -14,9 +14,9 @@ export default function MovieDetail() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		dispatch(movieAction.getMoviesDetail(id));
 		window.scrollTo(0, 0);
-		dispatch(movieAction.getDetailMovies(id));
-	}, []);
+	}, [id]);
 
 	if (loading) {
 		return (

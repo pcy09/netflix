@@ -10,6 +10,20 @@ export default function Trailer({ videoId }) {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo();
 	};
+
+	const trailer = videoId.results?.find((item) => {
+		if (item.name === "Official Trailer") {
+			return item;
+		}
+	});
+
+	// type에 "Trailer"가 있을 때
+	const trailer2 = videoId.results?.find((item) => {
+		if (item.type === "Trailer") {
+			return item;
+		}
+	});
+	console.log(videoId);
 	const opts = {
 		width: "640",
 		height: "390",
@@ -38,7 +52,8 @@ export default function Trailer({ videoId }) {
 				<Modal.Header closeButton></Modal.Header>
 				<Modal.Body>
 					<YouTube
-						videoId={videoId.results && videoId.results[0].key}
+						// videoId={videoId.results && videoId.results[0].key}
+						videoId={trailer?.key ? trailer?.key : trailer2?.key}
 						opts={opts}
 						onReady={onPlayerReady}
 					/>

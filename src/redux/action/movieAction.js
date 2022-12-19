@@ -1,7 +1,7 @@
-// 미들웨어 부분
-// https://developers.themoviedb.org/3/movies/get-popular-movies
+// 미들웨어 부분 toolkit
 
 import api from "../api";
+import { movieActions } from "../reducers/movieReducer";
 
 const APIkey = process.env.REACT_APP_APIKEY;
 // 받아온 키 값을 노출되지 않게 만든다 -> 루트에 .env 파일
@@ -11,18 +11,18 @@ const APIkey = process.env.REACT_APP_APIKEY;
 function getMovies() {
 	return async (dispatch) => {
 		try {
-			dispatch({ type: "GET_MOVIE_REQUEST" });
+			dispatch(movieActions.getMoviesRequest());
 
-			const popularMovieApi = await api.get(
+			const popularMovieApi = api.get(
 				`/movie/popular?api_key=${APIkey}&language=ko-KR&page=1`,
 			);
-			const topRatedMovieApi = await api.get(
+			const topRatedMovieApi = api.get(
 				`/movie/top_rated?api_key=${APIkey}&language=ko-KR&page=1`,
 			);
-			const upcommingMovieApi = await api.get(
+			const upcommingMovieApi = api.get(
 				`/movie/upcoming?api_key=${APIkey}&language=ko-KR&page=1`,
 			);
-			const genreApi = await api.get(
+			const genreApi = api.get(
 				`/genre/movie/list?api_key=${APIkey}&language=ko-KR`,
 			);
 			// 3개 데이타를 병렬로 동시에.
@@ -42,31 +42,31 @@ function getMovies() {
 			// console.log("upcommingMovie data는?", upcommingMovies);
 			// console.log("genreList data는?", genreList);
 
-			dispatch({
-				type: "GET_MOVIE_SUCCESS",
-				payload: {
+			dispatch(
+				movieActions.getMainMovies({
 					popularMovies: popularMovies.data,
 					topRatedMovies: topRatedMovies.data,
 					upcommingMovies: upcommingMovies.data,
 					genreList: genreList.data.genres,
-				}, //data필드만 보내줌. Axios는 받은 데이터를 data필드에 넣어서 줌
-			});
+				}), //data필드만 보내줌. Axios는 받은 데이터를 data필드에 넣어서 줌
+			);
 		} catch (error) {
 			//에러 핸들링
-			dispatch({ type: "GET_MOVIE_FAIL" });
+			dispatch(movieActions.getMoviesFailure());
 		}
 	};
 }
 
 // 디테일 데이터 가져오기
-function getDetailMovies(id) {
+function getMoviesDetail(id) {
 	return async (dispatch) => {
 		try {
-			dispatch({ type: "GET_D_MOVIE_REQUEST" });
-			const detailMovieApi = await api.get(
+			dispatch(movieActions.getMoviesRequest());
+
+			const detailMovieApi = api.get(
 				`/movie/${id}?api_key=${APIkey}&language=ko-KR`,
 			);
-			const trailerVideoApi = await api.get(
+			const trailerVideoApi = api.get(
 				`/movie/${id}/videos?api_key=${APIkey}&language=en-US`,
 			);
 
@@ -74,19 +74,18 @@ function getDetailMovies(id) {
 				detailMovieApi,
 				trailerVideoApi,
 			]);
-			dispatch({
-				type: "GET_D_MOVIE_SUCCESS",
-				payload: {
+			dispatch(
+				movieActions.getDetailMovies({
 					detailMovies: detailMovies.data,
 					trailerVideo: trailerVideo.data,
-				},
-			});
+				}),
+			);
 		} catch {
-			dispatch({ type: "GET_D_MOVIE_FAIL" });
+			dispatch(movieActions.getMoviesFailure());
 		}
 	};
 }
-export const movieAction = { getMovies, getDetailMovies };
+export const movieAction = { getMovies, getMoviesDetail };
 
 /*
   API 호출하는 방법

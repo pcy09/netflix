@@ -14,7 +14,7 @@ export default function MovieExplain({ item, videoId }) {
 				<div className="detail-comment">
 					<div>
 						{item.genres?.map((item) => (
-							<Badge ket={item.id} bg="danger">
+							<Badge key={item.id} bg="danger">
 								{item.name}
 							</Badge>
 						))}

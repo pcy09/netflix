@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Banner({ movie }) {
-	console.log(movie);
 	return (
 		<div
 			className="banner"

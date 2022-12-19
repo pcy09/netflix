@@ -1,13 +1,9 @@
-import { legacy_createStore as createStore, applyMiddleware } from "redux";
-// createStore가로줄 : redux toolkit 사용 유도를 위해
-import rootReducer from "./reducers";
+// toolkit 사용
+import { configureStore } from "@reduxjs/toolkit";
+import movieReducer from "./reducers/movieReducer";
 
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-
-let store = createStore(
-	rootReducer,
-	composeWithDevTools(applyMiddleware(thunk)),
-);
+const store = configureStore({
+	reducer: { movie: movieReducer },
+});
 
 export default store;
