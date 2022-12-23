@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+![project02](https://user-images.githubusercontent.com/110226576/209346267-6725987b-7864-4fc7-9679-32480c20891d.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NETFLIX (SPA_react)
+실시간 인기 / 평점 / 개봉예정 순으로 영화를 나열하고 소개해주는 SPA 사이트
 
-## Available Scripts
+## 사이트 주소
+- <a href="https://pcy09-netflix.netlify.app/" target="_blank">웹사이트</a>
 
-In the project directory, you can run:
+## 프로젝트 설명
 
-### `yarn start`
+### overview
+외부 API(TMDB)를 활용하여 실시간 데이터를 가져오는 작업을 배우기 위해 작업한 사이트입니다.
+### content
+TMDB 실시간 데이터를 인기순 / 평점순 / 개봉예정 순으로 구분하고 영화를 클릭하면 해당영화의 장르,제목,줄거리,평점,조회수 등이 보여지도록 하였습니다. Watch Trailer는 공식 트레일러 영상이 있는 경우 해당 영상을 재생하고, 없는 경우 영상 데이터 중 1번째 영상이 재생되도록 하였습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 주요 기능 (React)
+* 실시간 영화 순위 불러오기
+  - 인기순 / 평점순 / 개봉예정순
+* 영화 정보 가져오기
+  - 제목, 장르, 줄거리, 평점, 조회수 등
+  - 영상정보 가져오기
+* 공식 트레일러 영상 틀기
+  - 공식 트레일러 영상 있는 경우 해당 영상 재생, 없는 경우 1번째 영상 재생
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
