@@ -36,7 +36,7 @@ export default function Navigation() {
 		<Navbar className="navTop" bg="dark" variant="dark" expand="lg">
 			<Container fluid>
 				<Navbar.Brand>
-					<Link to="/" onClick={() => setIndex(item.title)}>
+					<Link to="/" onClick={() => setIndex("")}>
 						<img width={90} src="/logo01.png" alt="logo" />
 					</Link>
 				</Navbar.Brand>
