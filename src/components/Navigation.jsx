@@ -11,6 +11,7 @@ export default function Navigation() {
 			id: 0,
 			title: "Home",
 			link: "/",
+			state: "",
 		},
 		{
 			id: 1,
