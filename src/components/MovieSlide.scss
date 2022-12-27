@@ -1,0 +1,52 @@
+.cardWrap {
+	padding: 0 10px;
+	.movieCard {
+		border-radius: 5px;
+		height: 170px;
+		overflow: hidden;
+		background: {
+			size: cover;
+			position: center top;
+		}
+		cursor: pointer;
+		&:hover {
+			.card-info {
+				opacity: 1;
+			}
+		}
+	}
+}
+.card-info {
+	opacity: 0;
+	transition: all 0.3s ease-in;
+	padding: 10px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.titleWrap {
+		h5 {
+			font-weight: bold;
+		}
+		p {
+			span {
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+span.star {
+}
+span.r-rated {
+	font-family: "GmarketSansMedium";
+	color: red;
+	margin-left: 10px;
+}
+span.g-rated {
+	font-family: "GmarketSansMedium";
+	color: green;
+	margin-left: 10px;
+}

@@ -1,0 +1,24 @@
+.categoryContainer {
+	margin: 0 auto;
+	margin-top: 125px;
+	padding: 0;
+	@media (min-width: 1400px) {
+		max-width: none;
+		padding: 0 50px;
+	}
+	@media (max-width: 768px) {
+		margin-top: 100px;
+	}
+	@media (max-width: 575px) {
+		padding: 0 5%;
+	}
+
+	h2 {
+		margin-bottom: 20px;
+		font-size: 30px;
+		font-family: "GmarketSansMedium";
+	}
+	.cardWrap {
+		margin: 10px 0;
+	}
+}

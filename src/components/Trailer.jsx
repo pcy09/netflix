@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import YouTube from "react-youtube";
+import "./Trailer.scss";
 
 export default function Trailer({ videoId }) {
 	const [show, setShow] = useState(false);
@@ -10,7 +11,6 @@ export default function Trailer({ videoId }) {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo();
 	};
-
 	const trailer = videoId.results?.find((item) => {
 		if (item.name === "Official Trailer") {
 			return item;
@@ -23,10 +23,9 @@ export default function Trailer({ videoId }) {
 			return item;
 		}
 	});
-	console.log(videoId);
 	const opts = {
-		width: "640",
-		height: "390",
+		// width: "100%",
+		// height: "500",
 		playerVars: {
 			// https://developers.google.com/youtube/player_parameters
 			autoplay: 0,
@@ -56,6 +55,7 @@ export default function Trailer({ videoId }) {
 						videoId={trailer?.key ? trailer?.key : trailer2?.key}
 						opts={opts}
 						onReady={onPlayerReady}
+						className="youtubeWrap"
 					/>
 				</Modal.Body>
 			</Modal>

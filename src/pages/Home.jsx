@@ -6,14 +6,13 @@ import { movieAction } from "../redux/action/movieAction";
 import Banner from "../components/Banner";
 import MovieSlide from "../components/MovieSlide";
 import ClipLoader from "react-spinners/ClipLoader";
+import "./Home.scss";
 
 export default function Home() {
 	const dispatch = useDispatch();
 
 	const { popularMovies, topRatedMovies, upcommingMovies, loading } =
 		useSelector((state) => state.movie); //store에서 가져옴, loading상태도 추가
-
-	// console.log("현재 home, popularMovies가 잘 불러와졌니?", popularMovies);
 
 	useEffect(() => {
 		dispatch(movieAction.getMovies());
@@ -29,15 +28,15 @@ export default function Home() {
 		);
 	}
 	return (
-		<div>
+		<div className="homeContainer">
 			{popularMovies.results && <Banner movie={popularMovies.results[0]} />}
 			<div className="slide-container">
-				<h2>popularMovies</h2>
+				<h2>인기작 TOP 20</h2>
 				<MovieSlide movie={popularMovies.results} />
-				<h2>topRatedMovies</h2>
-				<MovieSlide movie={topRatedMovies.results} />
-				<h2>upcommingMovies</h2>
+				<h2>개봉 예정 영화 TOP 20</h2>
 				<MovieSlide movie={upcommingMovies.results} />
+				<h2>평점 높은 영화 TOP 20</h2>
+				<MovieSlide movie={topRatedMovies.results} />
 			</div>
 		</div>
 	);

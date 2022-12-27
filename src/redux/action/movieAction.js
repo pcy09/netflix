@@ -28,7 +28,6 @@ function getMovies() {
 			// 3개 데이타를 병렬로 동시에.
 			// let data = await Promise.all([popularMovieApi,topRatedMovieApi,upcommingMovieApi,]);
 			// console.log("data는?", data);
-
 			// 따로 받아옴
 			let [popularMovies, topRatedMovies, upcommingMovies, genreList] =
 				await Promise.all([
@@ -39,7 +38,7 @@ function getMovies() {
 				]);
 			// console.log("popularMovie data는?", popularMovies);
 			// console.log("topRatedMovie data는?", topRatedMovies);
-			// console.log("upcommingMovie data는?", upcommingMovies);
+			// console.log("upcommingMovie data는?", upcommingMovies.data);
 			// console.log("genreList data는?", genreList);
 
 			dispatch(

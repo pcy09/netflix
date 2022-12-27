@@ -36,7 +36,7 @@ export default function MovieCard({ item }) {
 				</div>
 				<div className="spanWrap">
 					<span className="star">⭐{item.vote_average}</span>
-					<span className={item.ault ? "r-rated" : "g-rated"}>
+					<span className={item.adult ? "r-rated" : "g-rated"}>
 						{item.adult ? "R-rated" : ""}
 					</span>
 				</div>

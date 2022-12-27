@@ -1,0 +1,29 @@
+.navTop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+	padding-left: 50px;
+	@media (max-width: 768px) {
+		padding: 0;
+	}
+	.navbar-toggler:focus {
+		box-shadow: none;
+	}
+	.navItem {
+		color: #fff;
+		padding: 20px 10px;
+		opacity: 0.4;
+		transition: all 0.5s;
+		&.active {
+			opacity: 1;
+		}
+		&:hover {
+			opacity: 1;
+		}
+		@media (max-width: 991px) {
+			opacity: 1;
+		}
+	}
+}

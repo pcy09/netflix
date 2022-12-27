@@ -1,0 +1,81 @@
+$wideWidth: "(min-width:1400px)";
+$smallWidth: "(max-width:575px)";
+.banner {
+	position: relative;
+	background: {
+		size: cover;
+		position: center top;
+	}
+	height: 700px;
+	// height: 40vw;
+	display: flex;
+	align-items: center;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		cursor: pointer;
+		background: linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%),
+			linear-gradient(
+				to right,
+				rgb(0, 0, 0) 35%,
+				rgba(0, 0, 0, 0) 60%,
+				rgba(0, 0, 0, 0.1) 100%
+			);
+	}
+
+	@media #{$wideWidth} {
+		// height: 600px;
+	}
+	@media (max-width: 1250px) {
+		// height: 230px;
+		height: 100vh;
+		&::before {
+			background: transparent;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+	}
+	.banner {
+		cursor: pointer;
+	}
+	.banner-info {
+		cursor: pointer;
+
+		z-index: 1;
+		width: 28%;
+		padding-left: 5%;
+		@media (max-width: 1250px) {
+			width: 60%;
+		}
+		@media (max-width: 550px) {
+			width: 95%;
+		}
+		h1 {
+			font-family: "GmarketSansBold";
+			font-size: 40px;
+			text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+			margin-bottom: 50px;
+			@media #{$wideWidth} {
+				font-size: 45px;
+			}
+			@media #{$smallWidth} {
+				font-size: 30px;
+			}
+		}
+		p {
+			font-size: 16px;
+			line-height: 1.8;
+			@media #{$wideWidth} {
+			}
+			@media #{$smallWidth} {
+				font-size: 14px;
+				// display: none;
+				// visibility: hidden;
+			}
+		}
+	}
+}
