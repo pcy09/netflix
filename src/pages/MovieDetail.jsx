@@ -5,13 +5,15 @@ import { useParams } from "react-router-dom";
 import MovieExplain from "../components/MovieExplain";
 import { movieAction } from "../redux/action/movieAction";
 import ClipLoader from "react-spinners/ClipLoader";
+import MovieSlide from "../components/MovieSlide";
 
 export default function MovieDetail() {
 	const { id } = useParams();
-	const { detailMovies, trailerVideo, loading } = useSelector(
+	const dispatch = useDispatch();
+
+	const { detailMovies, trailerVideo, similarMovies, loading } = useSelector(
 		(state) => state.movie,
 	);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(movieAction.getMoviesDetail(id));
@@ -27,10 +29,7 @@ export default function MovieDetail() {
 	return (
 		<div>
 			<MovieExplain item={detailMovies} videoId={trailerVideo} />
-			<br />
-			<br />
-			<br />
-			<h1>영화 리뷰들 넣을곳!</h1>
+			<MovieSlide movie={similarMovies?.results} />
 		</div>
 	);
 }

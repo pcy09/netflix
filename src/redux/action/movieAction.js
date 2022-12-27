@@ -68,15 +68,20 @@ function getMoviesDetail(id) {
 			const trailerVideoApi = api.get(
 				`/movie/${id}/videos?api_key=${APIkey}&language=en-US`,
 			);
-
-			let [detailMovies, trailerVideo] = await Promise.all([
+			const similarMovieApi = api.get(
+				`/movie/${id}/similar?api_key=${APIkey}&language=en-US&page=1`,
+			);
+			let [detailMovies, trailerVideo, similarMovies] = await Promise.all([
 				detailMovieApi,
 				trailerVideoApi,
+				similarMovieApi,
 			]);
+
 			dispatch(
 				movieActions.getDetailMovies({
 					detailMovies: detailMovies.data,
 					trailerVideo: trailerVideo.data,
+					similarMovies: similarMovies.data,
 				}),
 			);
 		} catch {

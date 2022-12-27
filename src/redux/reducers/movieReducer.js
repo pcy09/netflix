@@ -7,6 +7,7 @@ let initialState = {
 	upcommingMovies: {},
 	genreList: {},
 	detailMovies: {},
+	similarMovies: {},
 	trailerVideo: {},
 	loading: true,
 };
@@ -35,6 +36,7 @@ const movieSlice = createSlice({
 		getDetailMovies(state, action) {
 			state.detailMovies = action.payload.detailMovies;
 			state.trailerVideo = action.payload.trailerVideo;
+			state.similarMovies = action.payload.similarMovies;
 			state.loading = false;
 		},
 	},

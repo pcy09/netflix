@@ -38,7 +38,7 @@ export default function Trailer({ videoId }) {
 				variant="primary"
 				onClick={() => setShow(true)}
 			>
-				▶️Watch Trailer
+				▶️ 트레일러 영상 보기
 			</p>
 
 			<Modal
