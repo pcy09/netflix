@@ -12,13 +12,12 @@
 ### overview
 TMDB 실시간 데이터를 가져와서 인기순 / 평점순 / 개봉예정 순으로 구분하고 영화를 클릭하면 해당영화의 영화 정보/비슷한 영화/리뷰 등이 보여지도록 하였습니다. 
 ### 주요 기능 (React)
-*router를 이용하여 하나의 페이지에서 렌더링
-*redux(@toolkit)를 이용하여 store(configureStore)에 값들을 저장하기
-*useSelector를 이용하여 store에 저장한 값들 불러오기
-*axios를 이용하여 TMDB 실시간 데이터 가져오기
-*Carousel을 이용하여 슬라이드 기능 구현
-*useParams를 이용하여 해당 영화 id값 가져오기
-*
+* router를 이용하여 하나의 페이지에서 렌더링
+* redux(@toolkit)를 이용하여 store(configureStore)에 값들을 저장하기
+* useSelector를 이용하여 store에 저장한 값들 불러오기
+* axios를 이용하여 TMDB 실시간 데이터 가져오기
+* Carousel을 이용하여 슬라이드 기능 구현
+* useParams를 이용하여 해당 영화 id값 가져오기
 
 
 
