@@ -22,7 +22,7 @@ export default function MovieReviews({ item }) {
 						<div className="contentWrap">{item.content}</div>
 						<div className="authorWrap">
 							<h4>{item.author}</h4>
-							<p>{moment(item.created_at).format("LLL")}</p>
+							<p>{moment(item.created_at).format("YYYY-MM-DD HH:mm")}</p>
 						</div>
 					</div>
 				))}
