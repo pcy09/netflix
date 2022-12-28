@@ -29,7 +29,10 @@ export default function MovieDetail() {
 	return (
 		<div>
 			<MovieExplain item={detailMovies} videoId={trailerVideo} />
-			<MovieSlide movie={similarMovies?.results} />
+			<div className="slide-container">
+				<h2>비슷한 영화</h2>
+				<MovieSlide movie={similarMovies?.results} />
+			</div>
 		</div>
 	);
 }
