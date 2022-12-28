@@ -6,14 +6,14 @@ import MovieExplain from "../components/MovieExplain";
 import { movieAction } from "../redux/action/movieAction";
 import ClipLoader from "react-spinners/ClipLoader";
 import MovieSlide from "../components/MovieSlide";
+import MovieReviews from "../components/MovieReviews";
 
 export default function MovieDetail() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 
-	const { detailMovies, trailerVideo, similarMovies, loading } = useSelector(
-		(state) => state.movie,
-	);
+	const { detailMovies, trailerVideo, similarMovies, movieReviews, loading } =
+		useSelector((state) => state.movie);
 
 	useEffect(() => {
 		dispatch(movieAction.getMoviesDetail(id));
@@ -32,6 +32,12 @@ export default function MovieDetail() {
 			<div className="slide-container">
 				<h2>비슷한 영화</h2>
 				<MovieSlide movie={similarMovies?.results} />
+				<h2>리뷰 {movieReviews && movieReviews.results?.length}건</h2>
+				{movieReviews && movieReviews.results?.length === 0 ? (
+					<p className="noReview">관련 리뷰가 없습니다</p>
+				) : (
+					<MovieReviews item={movieReviews} />
+				)}
 			</div>
 		</div>
 	);

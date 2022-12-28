@@ -42,7 +42,15 @@ a {
 	justify-content: center;
 	align-items: center;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	margin: 0;
+	padding: 0;
+}
 .footer {
 	border-top: 1px solid rgba(255, 255, 255, 0.5);
 	padding: 50px 0;
@@ -50,4 +58,10 @@ a {
 	color: rgba(255, 255, 255, 0.3);
 	text-align: center;
 	font-size: 16px;
+}
+.noReview {
+	padding-left: 10px;
+	font-size: 18px;
+	margin-top: 50px;
+	text-align: center;
 }

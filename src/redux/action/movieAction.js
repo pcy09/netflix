@@ -69,19 +69,25 @@ function getMoviesDetail(id) {
 				`/movie/${id}/videos?api_key=${APIkey}&language=en-US`,
 			);
 			const similarMovieApi = api.get(
-				`/movie/${id}/similar?api_key=${APIkey}&language=en-US&page=1`,
+				`/movie/${id}/similar?api_key=${APIkey}&language=ko-KR&page=1`,
 			);
-			let [detailMovies, trailerVideo, similarMovies] = await Promise.all([
-				detailMovieApi,
-				trailerVideoApi,
-				similarMovieApi,
-			]);
+			const movieReviewApi = api.get(
+				`/movie/${id}/reviews?api_key=${APIkey}&language=en-US&page=1`,
+			);
+			let [detailMovies, trailerVideo, similarMovies, movieReviews] =
+				await Promise.all([
+					detailMovieApi,
+					trailerVideoApi,
+					similarMovieApi,
+					movieReviewApi,
+				]);
 
 			dispatch(
 				movieActions.getDetailMovies({
 					detailMovies: detailMovies.data,
 					trailerVideo: trailerVideo.data,
 					similarMovies: similarMovies.data,
+					movieReviews: movieReviews.data,
 				}),
 			);
 		} catch {

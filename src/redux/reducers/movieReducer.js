@@ -10,6 +10,7 @@ let initialState = {
 	similarMovies: {},
 	trailerVideo: {},
 	loading: true,
+	movieReviews: {},
 };
 
 // createSlice - 리듀서를 만들어줌, 객체를 매개변수로, 3개 필요
@@ -37,6 +38,7 @@ const movieSlice = createSlice({
 			state.detailMovies = action.payload.detailMovies;
 			state.trailerVideo = action.payload.trailerVideo;
 			state.similarMovies = action.payload.similarMovies;
+			state.movieReviews = action.payload.movieReviews;
 			state.loading = false;
 		},
 	},
